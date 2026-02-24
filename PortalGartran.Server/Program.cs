@@ -11,7 +11,7 @@ using PortalGartran.Services.Interfaces;
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
-    ?? "Server=localhost;Database=gartan_dev;User Id=postgres;Password=dev123";
+    ?? "Server=localhost;Database=gartan_dev;User Id=postgres;Password=root";
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
