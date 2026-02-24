@@ -1,0 +1,30 @@
+# Build artifacts
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.log
+
+# Playwright
+node_modules/
+.playwright/
+
+# IDE
+.vscode/
+.vs/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# NuGet
+.nuget/
+
+# Environment
+.env
+.env.local
+node_modules/
