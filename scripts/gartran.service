@@ -1,0 +1,42 @@
+[Unit]
+Description=Gartran Portal API
+After=network.target postgresql.service
+
+[Service]
+Type=notify
+User=gartran
+Group=gartran
+WorkingDirectory=/opt/gartran
+
+# .NET runtime
+ExecStart=/usr/bin/dotnet /opt/gartran/PortalGartran.Server.dll
+
+# Restart policy
+Restart=always
+RestartSec=10
+
+# Environment
+Environment="ASPNETCORE_URLS=http://localhost:8080"
+Environment="ASPNETCORE_ENVIRONMENT=Production"
+Environment="DOTNET_RUNNING_IN_CONTAINER=false"
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=gartran
+
+# Resource limits (optional)
+# LimitNOFILE=65536
+# LimitNPROC=4096
+
+# Security
+NoNewPrivileges=true
+PrivateTmp=true
+
+# Health check
+ExecHealthCheck=/bin/bash -c 'curl -f http://localhost:8080/api/health || exit 1'
+StartLimitInterval=300
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target
