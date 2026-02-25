@@ -1,6 +1,6 @@
-@PortalPCI.Server_HostAddress = http://localhost:5056
+@PortalGartran.Server_HostAddress = http://localhost:5056
 
-GET {{PortalPCI.Server_HostAddress}}/weatherforecast/
+GET {{PortalGartran.Server_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
